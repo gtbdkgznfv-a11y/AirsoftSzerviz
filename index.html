@@ -312,7 +312,7 @@ const ad = {
 
 };
 
-await supabaseClient
+const { error } = await supabaseClient
 .from("Hirdetések")
 .insert([ad]);
 
