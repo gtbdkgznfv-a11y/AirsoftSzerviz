@@ -29,13 +29,9 @@ font-size:24px;
 font-weight:bold
 }
 
-.red{
-color:#e00000
-}
+.red{color:#e00000}
 
-nav{
-margin-top:12px
-}
+nav{margin-top:12px}
 
 nav a{
 color:#ccc;
@@ -57,13 +53,8 @@ text-align:center;
 padding:80px 20px
 }
 
-h1{
-font-size:42px
-}
-
-h2{
-font-size:30px
-}
+h1{font-size:42px}
+h2{font-size:30px}
 
 p{
 color:#aaa;
@@ -158,8 +149,7 @@ margin-bottom:15px
 }
 
 .delete{
-background:#600;
-margin-top:15px
+background:#600
 }
 
 footer{
@@ -170,20 +160,12 @@ border-top:1px solid #222
 }
 
 @media(max-width:700px){
-
-.cards{
-grid-template-columns:1fr
-}
-
-h1{
-font-size:34px
-}
-
+.cards{grid-template-columns:1fr}
+h1{font-size:34px}
 nav a{
 display:inline-block;
 margin-bottom:8px
 }
-
 }
 </style>
 </head>
@@ -210,9 +192,7 @@ AIRSOFT<span class="red">SZERVIZ</span>
 
 <section id="home" class="hero">
 
-<p class="red">
-AIRSOFT • SZERVIZ • APRÓ
-</p>
+<p class="red">AIRSOFT • SZERVIZ • APRÓ</p>
 
 <h1>
 Minden, ami <span class="red">airsoft.</span>
@@ -220,15 +200,14 @@ Minden, ami <span class="red">airsoft.</span>
 
 <p>
 Airsoft fegyverek szervizelése, javítása,
-tuningja és airsoft felszerelések adás-vétele.
+tuningja és felszerelések adás-vétele.
 </p>
 
 <a class="btn" href="#hirdetesek">
-Hirdetések
+Hirdetések megtekintése
 </a>
 
 </section>
-
 
 <section id="hirdetesek">
 
@@ -239,7 +218,6 @@ Hirdetések
 </div>
 
 </section>
-
 
 <section id="szerviz">
 
@@ -266,7 +244,6 @@ Hirdetések
 
 </section>
 
-
 <section id="belepes">
 
 <h2>🔐 Admin</h2>
@@ -280,22 +257,10 @@ Hirdetések
 <form onsubmit="bejelentkezes(event)">
 
 <label>E-mail</label>
-
-<input
-id="email"
-type="email"
-required
-placeholder="E-mail cím"
->
+<input id="email" type="email" required>
 
 <label>Jelszó</label>
-
-<input
-id="jelszo"
-type="password"
-required
-placeholder="Jelszó"
->
+<input id="jelszo" type="password" required>
 
 <br><br>
 
@@ -307,73 +272,40 @@ Belépés
 
 </div>
 
-
 <div id="adminPanel" class="admin">
 
-<h3>➕ Hirdetés feladása</h3>
+<h3>➕ Új hirdetés</h3>
 
 <form onsubmit="feladas(event)">
 
 <label>Hirdetés címe</label>
-
-<input
-id="cim"
-required
-placeholder="Pl. Specna Arms M4"
->
+<input id="cim" required placeholder="Pl. Specna Arms M4">
 
 <label>Kategória</label>
 
 <select id="kategoria">
-
 <option>AEG</option>
 <option>HPA</option>
 <option>GBB</option>
 <option>Felszerelés</option>
 <option>Alkatrész</option>
 <option>Egyéb</option>
-
 </select>
 
 <label>Ár (Ft)</label>
-
-<input
-id="ar"
-type="number"
-required
-placeholder="85000"
->
+<input id="ar" type="number" required>
 
 <label>Helység</label>
-
-<input
-id="hely"
-required
-placeholder="Érd"
->
+<input id="hely" required placeholder="Érd">
 
 <label>Leírás</label>
-
-<textarea
-id="leiras"
-required
-placeholder="Termék állapota..."
-></textarea>
+<textarea id="leiras" required></textarea>
 
 <label>Kapcsolat</label>
-
-<input
-id="kapcsolat"
-required
-placeholder="Telefonszám vagy e-mail"
->
+<input id="kapcsolat" required placeholder="Telefonszám vagy e-mail">
 
 <label>Kép URL</label>
-
-<input
-id="kep"
-placeholder="https://..."
->
+<input id="kep" placeholder="https://...">
 
 <br><br>
 
@@ -395,7 +327,6 @@ Kijelentkezés
 
 </section>
 
-
 <section id="kapcsolat">
 
 <h2>📞 Kapcsolat</h2>
@@ -408,29 +339,26 @@ AirsoftSzerviz – airsoft javítás, tuning és adás-vétel.
 
 </main>
 
-
 <footer>
 © 2026 AirsoftSzerviz
 </footer>
-
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL =
+"https://qiainxirmzqvbshwnvay.supabase.co";
+
 const SUPABASE_KEY =
-"sb_publishable_pJuPUc0AG65beuV1faqTpw_rFV1lGGZ";
+"IDE_MASOLD_A_PUBLISHABLE_KEYED";
 
+/* NE sb_secret kulcsot használj */
 
-/*
-FONTOS:
-Ide a Supabase PROJECT PUBLISHABLE KEY kerül.
-A sb_secret_... kulcsot NE használd!
-*/
-
-const SUPABASE_KEY = 
-"sb_publishable_pJuPUc0AG65beuV1faqTpw_rFV1lGGZ";
-  
 const supabaseClient =
 window.supabase.createClient(
 SUPABASE_URL,
@@ -438,7 +366,9 @@ SUPABASE_KEY
 );
 
 
-/* HIRDETÉSEK BETÖLTÉSE */
+/* =========================
+   HIRDETÉSEK BETÖLTÉSE
+========================= */
 
 async function hirdetesekBetoltese(){
 
@@ -448,10 +378,8 @@ await supabaseClient
 .select("*")
 .order("created_at",{ascending:false});
 
-
 const lista =
 document.getElementById("hirdetesLista");
-
 
 if(error){
 
@@ -461,9 +389,7 @@ lista.innerHTML =
 console.error(error);
 
 return;
-
 }
-
 
 if(!data || data.length===0){
 
@@ -471,12 +397,9 @@ lista.innerHTML =
 "<p>Jelenleg nincs hirdetés.</p>";
 
 return;
-
 }
 
-
 lista.innerHTML="";
-
 
 data.forEach(ad=>{
 
@@ -485,20 +408,16 @@ document.createElement("div");
 
 card.className="card";
 
-
 if(ad.Kep){
 
 const kep =
 document.createElement("img");
 
 kep.className="hirdetes-kep";
-
 kep.src=ad.Kep;
 
 card.appendChild(kep);
-
 }
-
 
 const cim =
 document.createElement("h3");
@@ -507,7 +426,6 @@ cim.textContent =
 ad.Cím || "";
 
 card.appendChild(cim);
-
 
 const kat =
 document.createElement("p");
@@ -518,7 +436,6 @@ kat.textContent =
 
 card.appendChild(kat);
 
-
 const hely =
 document.createElement("p");
 
@@ -528,7 +445,6 @@ hely.textContent =
 
 card.appendChild(hely);
 
-
 const leiras =
 document.createElement("p");
 
@@ -537,18 +453,15 @@ ad.Leiras || "";
 
 card.appendChild(leiras);
 
-
 const ar =
 document.createElement("div");
 
 ar.className="price";
 
 ar.textContent =
-(ad.Ar || "") +
-" Ft";
+(ad.Ar || "") + " Ft";
 
 card.appendChild(ar);
-
 
 const kapcsolat =
 document.createElement("p");
@@ -559,9 +472,6 @@ kapcsolat.textContent =
 
 card.appendChild(kapcsolat);
 
-
-/* Törlés csak bejelentkezve */
-
 if(window.adminBejelentkezve){
 
 const torles =
@@ -569,15 +479,14 @@ document.createElement("button");
 
 torles.className="btn delete";
 
-torles.textContent="Hirdetés törlése";
+torles.textContent =
+"Hirdetés törlése";
 
 torles.onclick =
 ()=>hirdetesTorles(ad.id);
 
 card.appendChild(torles);
-
 }
-
 
 lista.appendChild(card);
 
@@ -586,12 +495,13 @@ lista.appendChild(card);
 }
 
 
-/* BELÉPÉS */
+/* =========================
+   BEJELENTKEZÉS
+========================= */
 
 async function bejelentkezes(event){
 
 event.preventDefault();
-
 
 const email =
 document.getElementById("email").value;
@@ -599,67 +509,56 @@ document.getElementById("email").value;
 const jelszo =
 document.getElementById("jelszo").value;
 
-
 const {error} =
 await supabaseClient.auth.signInWithPassword({
-
 email:email,
-
 password:jelszo
-
 });
-
 
 if(error){
 
-alert(
-"❌ Hibás e-mail vagy jelszó."
-);
+alert("❌ Hibás e-mail vagy jelszó.");
 
 return;
+}
+
+alert("✅ Sikeres bejelentkezés!");
+
+adminEllenorzes();
 
 }
 
 
-alert(
-"✅ Sikeres bejelentkezés!"
-);
-
-}
-
-
-/* KIJELENTKEZÉS */
+/* =========================
+   KIJELENTKEZÉS
+========================= */
 
 async function kijelentkezes(){
 
 await supabaseClient.auth.signOut();
 
-alert("Kijelentkeztél.");
+adminEllenorzes();
 
 }
 
 
-/* HIRDETÉS FELADÁSA */
+/* =========================
+   HIRDETÉS FELADÁSA
+========================= */
 
 async function feladas(event){
 
 event.preventDefault();
 
-
 const {data:userData} =
 await supabaseClient.auth.getUser();
 
-
 if(!userData.user){
 
-alert(
-"❌ Előbb be kell jelentkezned."
-);
+alert("❌ Előbb jelentkezz be.");
 
 return;
-
 }
-
 
 const ad={
 
@@ -686,52 +585,43 @@ document.getElementById("kep").value
 
 };
 
-
 const {error} =
 await supabaseClient
 .from("Hirdetések")
 .insert([ad]);
 
-
 if(error){
 
 alert(
-"Hiba: " +
+"❌ Hiba: " +
 error.message
 );
 
 console.error(error);
 
 return;
-
 }
 
+alert("✅ Hirdetés sikeresen feladva!");
 
-alert(
-"✅ Hirdetés sikeresen feladva!"
-);
-
-
-document.querySelector("#adminPanel form").reset();
-
+document.querySelector(
+"#adminPanel form"
+).reset();
 
 hirdetesekBetoltese();
 
 }
 
 
-/* HIRDETÉS TÖRLÉSE */
+/* =========================
+   HIRDETÉS TÖRLÉSE
+========================= */
 
 async function hirdetesTorles(id){
 
 if(!confirm(
 "Biztosan törlöd ezt a hirdetést?"
-)){
-
-return;
-
-}
-
+)) return;
 
 const {error} =
 await supabaseClient
@@ -739,34 +629,31 @@ await supabaseClient
 .delete()
 .eq("id",id);
 
-
 if(error){
 
 alert(
-"Hiba: " +
+"❌ Hiba: " +
 error.message
 );
 
 return;
-
 }
-
 
 hirdetesekBetoltese();
 
 }
 
 
-/* ADMIN ÁLLAPOT */
+/* =========================
+   ADMIN ELLENŐRZÉS
+========================= */
 
 window.adminBejelentkezve=false;
-
 
 async function adminEllenorzes(){
 
 const {data} =
 await supabaseClient.auth.getUser();
-
 
 if(data.user){
 
@@ -775,7 +662,6 @@ window.adminBejelentkezve=true;
 document.getElementById(
 "loginBox"
 ).style.display="none";
-
 
 document.getElementById(
 "adminPanel"
@@ -789,7 +675,6 @@ document.getElementById(
 "loginBox"
 ).style.display="block";
 
-
 document.getElementById(
 "adminPanel"
 ).style.display="none";
@@ -801,20 +686,14 @@ hirdetesekBetoltese();
 }
 
 
-/* BELÉPÉS / KIJELENTKEZÉS FIGYELÉSE */
+/* =========================
+   INDULÁS
+========================= */
 
 supabaseClient.auth.onAuthStateChange(
 function(){
-
-setTimeout(
-adminEllenorzes,
-100
-);
-
+setTimeout(adminEllenorzes,100);
 });
-
-
-/* INDULÁS */
 
 adminEllenorzes();
 
