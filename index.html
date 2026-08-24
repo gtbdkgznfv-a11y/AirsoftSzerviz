@@ -424,14 +424,43 @@ AirsoftSzerviz – airsoft javítás, tuning és adás-vétel.
 
 <script>
 
-function feladas(event){
+async function feladas(event){
 
 event.preventDefault();
 
-alert(
-"Hirdetés elkészült!\\n\\n" +
-"A valódi online közzétételhez még adatbázist kell hozzákapcsolnunk."
-);
+const cim = document.getElementById("cim").value;
+const kategoria = document.getElementById("kategoria").value;
+const ar = document.getElementById("ar").value;
+const hely = document.getElementById("hely").value;
+const leiras = document.getElementById("leiras").value;
+const kapcsolat = document.getElementById("kapcsolat").value;
+
+const { error } = await supabaseClient
+.from("Hirdetések")
+.insert([
+{
+cim: cim,
+kategoria: kategoria,
+ar: ar,
+hely: hely,
+leiras: leiras,
+kapcsolat: kapcsolat
+}
+]);
+
+if(error){
+
+alert("Hiba történt: " + error.message);
+
+}else{
+
+alert("✅ A hirdetés sikeresen feladva!");
+
+document.querySelector("form").reset();
+
+}
+
+}
 
 }
 
