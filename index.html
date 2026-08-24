@@ -7,12 +7,14 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
 margin:0;
 background:#090909;
-color:white;
+color:#fff;
 font-family:Arial,sans-serif
 }
+
 header{
 background:#111;
 padding:18px;
@@ -21,109 +23,117 @@ top:0;
 z-index:10;
 border-bottom:1px solid #333
 }
+
 .logo{
 font-size:24px;
 font-weight:bold
 }
-.red{color:#e00000}
+
+.red{
+color:#e00000
+}
+
 nav{
 margin-top:12px
 }
+
 nav a{
 color:#ccc;
 text-decoration:none;
-margin-right:12px
+margin-right:15px
 }
+
 main{
-max-width:1000px;
+max-width:1100px;
 margin:auto
 }
+
 section{
-padding:50px 20px
+padding:55px 20px
 }
+
 .hero{
 text-align:center;
-padding:80px 20px
+padding:90px 20px
 }
+
 h1{
-font-size:42px
+font-size:46px
 }
+
 h2{
-font-size:30px
+font-size:32px
 }
+
 p{
 color:#aaa;
 line-height:1.6
 }
+
 .btn{
 display:inline-block;
 background:#e00000;
-color:white;
-padding:14px 20px;
-border:0;
+color:#fff;
+padding:14px 22px;
 border-radius:7px;
 font-weight:bold;
 text-decoration:none;
-cursor:pointer
+margin:5px
 }
+
 .btn.dark{
 background:#222;
 border:1px solid #444
 }
+
 .cards{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:15px
+gap:18px
 }
+
 .card{
 background:#151515;
 border:1px solid #333;
-border-radius:8px;
+border-radius:10px;
 padding:20px
 }
+
 .price{
 color:#e00000;
-font-weight:bold;
-font-size:20px
-}
-form{
-background:#151515;
-padding:20px;
-border:1px solid #333;
-border-radius:8px;
-max-width:650px
-}
-label{
-display:block;
-margin-top:15px;
-margin-bottom:5px;
+font-size:21px;
 font-weight:bold
 }
-input,select,textarea{
-width:100%;
-padding:12px;
-background:#090909;
-color:white;
-border:1px solid #444;
-border-radius:6px;
-font-size:16px
+
+.contact{
+background:#151515;
+border:1px solid #333;
+border-radius:10px;
+padding:25px
 }
-textarea{
-min-height:120px
-}
+
 footer{
-padding:30px;
+padding:35px;
 text-align:center;
 color:#666;
 border-top:1px solid #222
 }
+
 @media(max-width:700px){
+
 .cards{
 grid-template-columns:1fr
 }
+
 h1{
-font-size:34px
+font-size:36px
 }
+
+nav a{
+display:inline-block;
+margin-bottom:8px
+}
+
 }
 </style>
 </head>
@@ -138,8 +148,9 @@ AIRSOFT<span class="red">SZERVIZ</span>
 
 <nav>
 <a href="#home">Kezdőlap</a>
-<a href="#hirdetesek">Hirdetések</a>
+<a href="#hirdetesek">Eladó termékek</a>
 <a href="#szerviz">Szerviz</a>
+<a href="#kapcsolat">Kapcsolat</a>
 </nav>
 
 </header>
@@ -148,7 +159,9 @@ AIRSOFT<span class="red">SZERVIZ</span>
 
 <section id="home" class="hero">
 
-<p class="red">AIRSOFT • SZERVIZ • APRÓ</p>
+<p class="red">
+AIRSOFT • SZERVIZ • ELADÁS
+</p>
 
 <h1>
 Minden, ami <span class="red">airsoft.</span>
@@ -156,46 +169,32 @@ Minden, ami <span class="red">airsoft.</span>
 
 <p>
 Airsoft fegyverek szervizelése, javítása,
-tuningja és airsoft felszerelések adás-vétele.
+tuningja és eladó airsoft felszerelések.
 </p>
 
 <a class="btn" href="#hirdetesek">
-Hirdetések
+Eladó termékek
 </a>
 
-<a class="btn dark" href="#feladas">
-Hirdetés feladása
+<a class="btn dark" href="#kapcsolat">
+Kapcsolat
 </a>
 
 </section>
+
 
 <section id="hirdetesek">
 
-<h2>Legfrissebb hirdetések</h2>
+<h2>🛒 Eladó termékek</h2>
 
 <div id="hirdetesLista" class="cards">
 
-<div class="card">
-<h3>M4 AEG</h3>
-<p>Megkímélt airsoft replika.</p>
-<div class="price">85 000 Ft</div>
-</div>
-
-<div class="card">
-<h3>HPA rendszer</h3>
-<p>HPA rendszer és tartozékok.</p>
-<div class="price">120 000 Ft</div>
-</div>
-
-<div class="card">
-<h3>GBB pisztoly</h3>
-<p>Gázos airsoft pisztoly.</p>
-<div class="price">55 000 Ft</div>
-</div>
+<p>Hirdetések betöltése...</p>
 
 </div>
 
 </section>
+
 
 <section id="szerviz">
 
@@ -205,36 +204,64 @@ Hirdetés feladása
 
 <div class="card">
 <h3>AEG szerviz</h3>
-<p>Gearbox szerviz, hibakeresés és tuning.</p>
+<p>
+Gearbox szerviz, hibakeresés,
+karbantartás és tuning.
+</p>
 </div>
 
 <div class="card">
 <h3>HPA építés</h3>
-<p>HPA rendszerek beépítése és beállítása.</p>
+<p>
+HPA rendszerek beépítése,
+beállítása és karbantartása.
+</p>
 </div>
 
 <div class="card">
 <h3>GBB szerviz</h3>
-<p>GBB rendszerek javítása és karbantartása.</p>
+<p>
+GBB rendszerek javítása,
+tisztítása és karbantartása.
+</p>
 </div>
 
 </div>
 
-<section>
+</section>
+
+
+<section id="kapcsolat">
 
 <h2>📞 Kapcsolat</h2>
 
+<div class="contact">
+
+<h3>AirsoftSzerviz</h3>
+
 <p>
-AirsoftSzerviz – airsoft javítás, tuning és adás-vétel.
+Airsoft javítás, tuning,
+karbantartás és eladó felszerelések.
 </p>
+
+<p>
+<strong>Érdeklődés:</strong><br>
+Telefonon vagy e-mailben.
+</p>
+
+</div>
 
 </section>
 
 </main>
 
+
 <footer>
+
 © 2026 AirsoftSzerviz
+
 </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -252,38 +279,88 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-async function feladas(event){
 
-event.preventDefault();
+async function hirdetesekBetoltese(){
 
-const ad = {
-
-"Cím": document.getElementById("cim").value,
-"Kategória": document.getElementById("kategoria").value,
-"Ar": document.getElementById("ar").value,
-"Hely": document.getElementById("hely").value,
-"Leiras": document.getElementById("leiras").value,
-"Kapcsolat": document.getElementById("kapcsolat").value
-
-};
-
-const { error } = await supabaseClient
+const { data, error } =
+await supabaseClient
 .from("Hirdetések")
-.insert([ad]);
+.select("*")
+.order("created_at",{ascending:false});
+
+
+const lista =
+document.getElementById("hirdetesLista");
+
 
 if(error){
 
-alert("Hiba: " + error.message);
+lista.innerHTML =
+"<p>Hiba történt a hirdetések betöltésekor.</p>";
+
+console.log(error);
 
 return;
 
 }
 
-alert("✅ Hirdetés sikeresen feladva!");
 
-document.querySelector("form").reset();
+if(!data || data.length === 0){
+
+lista.innerHTML =
+"<p>Jelenleg nincs eladó termék.</p>";
+
+return;
 
 }
+
+
+lista.innerHTML = "";
+
+
+data.forEach(ad => {
+
+const kartya =
+document.createElement("div");
+
+kartya.className = "card";
+
+
+kartya.innerHTML = `
+
+<h3>${ad["Cím"] || ""}</h3>
+
+<p>
+<strong>Kategória:</strong>
+${ad["Kategória"] || ""}
+</p>
+
+<p>
+${ad["Leiras"] || ""}
+</p>
+
+<p>
+📍 ${ad["Hely"] || ""}
+</p>
+
+<div class="price">
+${ad["Ar"] || ""} Ft
+</div>
+
+<p>
+📞 ${ad["Kapcsolat"] || ""}
+</p>
+
+`;
+
+lista.appendChild(kartya);
+
+});
+
+}
+
+
+hirdetesekBetoltese();
 
 </script>
 
