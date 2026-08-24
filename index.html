@@ -436,6 +436,19 @@ alert(
 }
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://qiainxirmzqvbshwnvay.supabase.co";
+const SUPABASE_KEY = const SUPABASE_KEY = 'SUPABASE_CLIENT_ANON_KEY'
+const SUPABASE_URL = 'https://qiainxirmzqvbshwnvay.supabase.co'
+const supabase = createClient(SUPABASE_URL, process.env.SUPABASE_KEY);
+
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+</script>
 </body>
 </html>
