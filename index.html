@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>AirsoftSzerviz</title>
 
 <style>
@@ -108,8 +107,59 @@ font-weight:bold;
 font-size:20px
 }
 
-.contact{
-color:#ddd
+form{
+background:#151515;
+padding:20px;
+border:1px solid #333;
+border-radius:8px;
+max-width:650px
+}
+
+label{
+display:block;
+margin-top:15px;
+margin-bottom:5px;
+font-weight:bold
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+background:#090909;
+color:white;
+border:1px solid #444;
+border-radius:6px;
+font-size:16px
+}
+
+textarea{
+min-height:120px
+}
+
+.admin{
+display:none
+}
+
+.admin-box{
+background:#151515;
+border:1px solid #333;
+border-radius:8px;
+padding:20px;
+max-width:650px;
+margin:auto
+}
+
+.hirdetes-kep{
+width:100%;
+max-height:300px;
+object-fit:cover;
+border-radius:6px;
+margin-bottom:15px
+}
+
+.delete{
+background:#600;
+margin-top:15px
 }
 
 footer{
@@ -147,19 +197,14 @@ AIRSOFT<span class="red">SZERVIZ</span>
 </div>
 
 <nav>
-
 <a href="#home">Kezdőlap</a>
-
 <a href="#hirdetesek">Hirdetések</a>
-
 <a href="#szerviz">Szerviz</a>
-
 <a href="#kapcsolat">Kapcsolat</a>
-
+<a href="#belepes">Admin</a>
 </nav>
 
 </header>
-
 
 <main>
 
@@ -179,7 +224,7 @@ tuningja és airsoft felszerelések adás-vétele.
 </p>
 
 <a class="btn" href="#hirdetesek">
-Hirdetések megtekintése
+Hirdetések
 </a>
 
 </section>
@@ -187,62 +232,10 @@ Hirdetések megtekintése
 
 <section id="hirdetesek">
 
-<h2>
-Legfrissebb hirdetések
-</h2>
+<h2>Legfrissebb hirdetések</h2>
 
 <div id="hirdetesLista" class="cards">
-
-<div class="card">
-
-<h3>
-M4 AEG
-</h3>
-
-<p>
-Megkímélt airsoft replika.
-</p>
-
-<div class="price">
-85 000 Ft
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-HPA rendszer
-</h3>
-
-<p>
-HPA rendszer és tartozékok.
-</p>
-
-<div class="price">
-120 000 Ft
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-GBB pisztoly
-</h3>
-
-<p>
-Gázos airsoft pisztoly.
-</p>
-
-<div class="price">
-55 000 Ft
-</div>
-
-</div>
-
+<p>Hirdetések betöltése...</p>
 </div>
 
 </section>
@@ -250,47 +243,151 @@ Gázos airsoft pisztoly.
 
 <section id="szerviz">
 
-<h2>
-🔧 Airsoft szerviz
-</h2>
+<h2>🔧 Airsoft szerviz</h2>
 
 <div class="cards">
 
 <div class="card">
+<h3>AEG szerviz</h3>
+<p>Gearbox szerviz, hibakeresés és tuning.</p>
+</div>
 
-<h3>
-AEG szerviz
-</h3>
+<div class="card">
+<h3>HPA építés</h3>
+<p>HPA rendszerek beépítése és beállítása.</p>
+</div>
 
-<p>
-Gearbox szerviz, hibakeresés és tuning.
-</p>
+<div class="card">
+<h3>GBB szerviz</h3>
+<p>GBB rendszerek javítása és karbantartása.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="belepes">
+
+<h2>🔐 Admin</h2>
+
+<div class="admin-box">
+
+<div id="loginBox">
+
+<h3>Admin belépés</h3>
+
+<form onsubmit="bejelentkezes(event)">
+
+<label>E-mail</label>
+
+<input
+id="email"
+type="email"
+required
+placeholder="E-mail cím"
+>
+
+<label>Jelszó</label>
+
+<input
+id="jelszo"
+type="password"
+required
+placeholder="Jelszó"
+>
+
+<br><br>
+
+<button class="btn" type="submit">
+Belépés
+</button>
+
+</form>
 
 </div>
 
 
-<div class="card">
+<div id="adminPanel" class="admin">
 
-<h3>
-HPA építés
-</h3>
+<h3>➕ Hirdetés feladása</h3>
 
-<p>
-HPA rendszerek beépítése és beállítása.
-</p>
+<form onsubmit="feladas(event)">
 
-</div>
+<label>Hirdetés címe</label>
 
+<input
+id="cim"
+required
+placeholder="Pl. Specna Arms M4"
+>
 
-<div class="card">
+<label>Kategória</label>
 
-<h3>
-GBB szerviz
-</h3>
+<select id="kategoria">
 
-<p>
-GBB rendszerek javítása és karbantartása.
-</p>
+<option>AEG</option>
+<option>HPA</option>
+<option>GBB</option>
+<option>Felszerelés</option>
+<option>Alkatrész</option>
+<option>Egyéb</option>
+
+</select>
+
+<label>Ár (Ft)</label>
+
+<input
+id="ar"
+type="number"
+required
+placeholder="85000"
+>
+
+<label>Helység</label>
+
+<input
+id="hely"
+required
+placeholder="Érd"
+>
+
+<label>Leírás</label>
+
+<textarea
+id="leiras"
+required
+placeholder="Termék állapota..."
+></textarea>
+
+<label>Kapcsolat</label>
+
+<input
+id="kapcsolat"
+required
+placeholder="Telefonszám vagy e-mail"
+>
+
+<label>Kép URL</label>
+
+<input
+id="kep"
+placeholder="https://..."
+>
+
+<br><br>
+
+<button class="btn" type="submit">
+Hirdetés feladása
+</button>
+
+</form>
+
+<br>
+
+<button class="btn dark" onclick="kijelentkezes()">
+Kijelentkezés
+</button>
 
 </div>
 
@@ -301,16 +398,10 @@ GBB rendszerek javítása és karbantartása.
 
 <section id="kapcsolat">
 
-<h2>
-📞 Kapcsolat
-</h2>
+<h2>📞 Kapcsolat</h2>
 
-<p class="contact">
+<p>
 AirsoftSzerviz – airsoft javítás, tuning és adás-vétel.
-</p>
-
-<p class="contact">
-Érdeklődés esetén keress telefonon vagy e-mailben.
 </p>
 
 </section>
@@ -319,10 +410,416 @@ AirsoftSzerviz – airsoft javítás, tuning és adás-vétel.
 
 
 <footer>
-
 © 2026 AirsoftSzerviz
-
 </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://qiainxirmzqvbshwnvay.supabase.co";
+
+
+/*
+FONTOS:
+Ide a Supabase PROJECT PUBLISHABLE KEY kerül.
+A sb_secret_... kulcsot NE használd!
+*/
+
+const SUPABASE_KEY =
+"IDE_MASOLD_A_PUBLISHABLE_KEYT";
+
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+/* HIRDETÉSEK BETÖLTÉSE */
+
+async function hirdetesekBetoltese(){
+
+const {data,error} =
+await supabaseClient
+.from("Hirdetések")
+.select("*")
+.order("created_at",{ascending:false});
+
+
+const lista =
+document.getElementById("hirdetesLista");
+
+
+if(error){
+
+lista.innerHTML =
+"<p>Hiba a hirdetések betöltésekor.</p>";
+
+console.error(error);
+
+return;
+
+}
+
+
+if(!data || data.length===0){
+
+lista.innerHTML =
+"<p>Jelenleg nincs hirdetés.</p>";
+
+return;
+
+}
+
+
+lista.innerHTML="";
+
+
+data.forEach(ad=>{
+
+const card =
+document.createElement("div");
+
+card.className="card";
+
+
+if(ad.Kep){
+
+const kep =
+document.createElement("img");
+
+kep.className="hirdetes-kep";
+
+kep.src=ad.Kep;
+
+card.appendChild(kep);
+
+}
+
+
+const cim =
+document.createElement("h3");
+
+cim.textContent =
+ad.Cím || "";
+
+card.appendChild(cim);
+
+
+const kat =
+document.createElement("p");
+
+kat.textContent =
+"Kategória: " +
+(ad.Kategória || "");
+
+card.appendChild(kat);
+
+
+const hely =
+document.createElement("p");
+
+hely.textContent =
+"Helység: " +
+(ad.Hely || "");
+
+card.appendChild(hely);
+
+
+const leiras =
+document.createElement("p");
+
+leiras.textContent =
+ad.Leiras || "";
+
+card.appendChild(leiras);
+
+
+const ar =
+document.createElement("div");
+
+ar.className="price";
+
+ar.textContent =
+(ad.Ar || "") +
+" Ft";
+
+card.appendChild(ar);
+
+
+const kapcsolat =
+document.createElement("p");
+
+kapcsolat.textContent =
+"Kapcsolat: " +
+(ad.Kapcsolat || "");
+
+card.appendChild(kapcsolat);
+
+
+/* Törlés csak bejelentkezve */
+
+if(window.adminBejelentkezve){
+
+const torles =
+document.createElement("button");
+
+torles.className="btn delete";
+
+torles.textContent="Hirdetés törlése";
+
+torles.onclick =
+()=>hirdetesTorles(ad.id);
+
+card.appendChild(torles);
+
+}
+
+
+lista.appendChild(card);
+
+});
+
+}
+
+
+/* BELÉPÉS */
+
+async function bejelentkezes(event){
+
+event.preventDefault();
+
+
+const email =
+document.getElementById("email").value;
+
+const jelszo =
+document.getElementById("jelszo").value;
+
+
+const {error} =
+await supabaseClient.auth.signInWithPassword({
+
+email:email,
+
+password:jelszo
+
+});
+
+
+if(error){
+
+alert(
+"❌ Hibás e-mail vagy jelszó."
+);
+
+return;
+
+}
+
+
+alert(
+"✅ Sikeres bejelentkezés!"
+);
+
+}
+
+
+/* KIJELENTKEZÉS */
+
+async function kijelentkezes(){
+
+await supabaseClient.auth.signOut();
+
+alert("Kijelentkeztél.");
+
+}
+
+
+/* HIRDETÉS FELADÁSA */
+
+async function feladas(event){
+
+event.preventDefault();
+
+
+const {data:userData} =
+await supabaseClient.auth.getUser();
+
+
+if(!userData.user){
+
+alert(
+"❌ Előbb be kell jelentkezned."
+);
+
+return;
+
+}
+
+
+const ad={
+
+"Cím":
+document.getElementById("cim").value,
+
+"Kategória":
+document.getElementById("kategoria").value,
+
+"Ar":
+document.getElementById("ar").value,
+
+"Hely":
+document.getElementById("hely").value,
+
+"Leiras":
+document.getElementById("leiras").value,
+
+"Kapcsolat":
+document.getElementById("kapcsolat").value,
+
+"Kep":
+document.getElementById("kep").value
+
+};
+
+
+const {error} =
+await supabaseClient
+.from("Hirdetések")
+.insert([ad]);
+
+
+if(error){
+
+alert(
+"Hiba: " +
+error.message
+);
+
+console.error(error);
+
+return;
+
+}
+
+
+alert(
+"✅ Hirdetés sikeresen feladva!"
+);
+
+
+document.querySelector("#adminPanel form").reset();
+
+
+hirdetesekBetoltese();
+
+}
+
+
+/* HIRDETÉS TÖRLÉSE */
+
+async function hirdetesTorles(id){
+
+if(!confirm(
+"Biztosan törlöd ezt a hirdetést?"
+)){
+
+return;
+
+}
+
+
+const {error} =
+await supabaseClient
+.from("Hirdetések")
+.delete()
+.eq("id",id);
+
+
+if(error){
+
+alert(
+"Hiba: " +
+error.message
+);
+
+return;
+
+}
+
+
+hirdetesekBetoltese();
+
+}
+
+
+/* ADMIN ÁLLAPOT */
+
+window.adminBejelentkezve=false;
+
+
+async function adminEllenorzes(){
+
+const {data} =
+await supabaseClient.auth.getUser();
+
+
+if(data.user){
+
+window.adminBejelentkezve=true;
+
+document.getElementById(
+"loginBox"
+).style.display="none";
+
+
+document.getElementById(
+"adminPanel"
+).style.display="block";
+
+}else{
+
+window.adminBejelentkezve=false;
+
+document.getElementById(
+"loginBox"
+).style.display="block";
+
+
+document.getElementById(
+"adminPanel"
+).style.display="none";
+
+}
+
+hirdetesekBetoltese();
+
+}
+
+
+/* BELÉPÉS / KIJELENTKEZÉS FIGYELÉSE */
+
+supabaseClient.auth.onAuthStateChange(
+function(){
+
+setTimeout(
+adminEllenorzes,
+100
+);
+
+});
+
+
+/* INDULÁS */
+
+adminEllenorzes();
+
+</script>
 
 </body>
 </html>
