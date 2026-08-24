@@ -3,28 +3,159 @@
 <html lang="hu">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AirsoftSzerviz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AirsoftSzerviz – Hirdetések és szerviz</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#090909;color:#fff;font-family:Arial,sans-serif}
-header{background:#111;border-bottom:1px solid #333;padding:18px 20px;text-align:center}
-.logo{font-size:25px;font-weight:900}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ background:#090909;
+ color:#fff;
+ font-family:Arial,sans-serif;
+}
+header{
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:#111;
+ border-bottom:1px solid #333;
+}
+.nav{
+ max-width:1100px;
+ margin:auto;
+ padding:16px 20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+.logo{
+ font-size:24px;
+ font-weight:900;
+}
 .red{color:#e00000}
-.hero{max-width:900px;margin:auto;padding:80px 20px;text-align:center}
-.hero h1{font-size:52px;margin:10px 0}
-.hero p{color:#aaa;font-size:18px;line-height:1.6}
-.btn{display:inline-block;background:#e00000;color:#fff;text-decoration:none;padding:14px 22px;border-radius:6px;font-weight:bold;margin-top:15px}
-section{max-width:1000px;margin:auto;padding:55px 20px}
-h2{font-size:34px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#151515;border:1px solid #333;border-radius:8px;padding:22px}
-.card p{color:#aaa;line-height:1.5}
-.pic{height:130px;background:#222;display:grid;place-items:center;color:#666;border-radius:5px}
-footer{text-align:center;color:#666;padding:30px;border-top:1px solid #222}
-@media(max-width:700px){
-.hero h1{font-size:40px}
-.cards{grid-template-columns:1fr}
+nav a{
+ color:#ccc;
+ text-decoration:none;
+ margin-left:15px;
+}
+.hero{
+ max-width:1000px;
+ margin:auto;
+ padding:70px 20px;
+ text-align:center;
+}
+.hero h1{
+ font-size:48px;
+ margin:10px 0;
+}
+.hero p{
+ color:#aaa;
+ font-size:18px;
+ line-height:1.6;
+}
+.buttons{
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-top:25px;
+}
+.btn{
+ display:inline-block;
+ padding:14px 20px;
+ border-radius:7px;
+ background:#e00000;
+ color:#fff;
+ text-decoration:none;
+ font-weight:bold;
+ border:0;
+ cursor:pointer;
+}
+.btn.dark{
+ background:#222;
+ border:1px solid #444;
+}
+section{
+ max-width:1100px;
+ margin:auto;
+ padding:55px 20px;
+}
+h2{
+ font-size:34px;
+ margin-bottom:25px;
+}
+.cards{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+.card{
+ background:#151515;
+ border:1px solid #333;
+ border-radius:9px;
+ padding:20px;
+}
+.card p{
+ color:#aaa;
+ line-height:1.5;
+}
+.pic{
+ height:150px;
+ background:#222;
+ border-radius:7px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#666;
+}
+.price{
+ color:#e00000;
+ font-size:20px;
+ font-weight:bold;
+}
+form{
+ max-width:650px;
+ background:#151515;
+ border:1px solid #333;
+ border-radius:10px;
+ padding:25px;
+}
+label{
+ display:block;
+ margin-top:15px;
+ margin-bottom:6px;
+ font-weight:bold;
+}
+input,textarea,select{
+ width:100%;
+ padding:13px;
+ border-radius:6px;
+ border:1px solid #444;
+ background:#0d0d0d;
+ color:#fff;
+ font-size:16px;
+}
+textarea{
+ min-height:130px;
+ resize:vertical;
+}
+input[type=file]{
+ padding:10px;
+}
+footer{
+ text-align:center;
+ color:#666;
+ padding:35px;
+ border-top:1px solid #222;
+}
+@media(max-width:750px){
+ .nav{display:block;text-align:center}
+ nav{margin-top:12px}
+ nav a{margin:0 6px}
+ .hero h1{font-size:38px}
+ .cards{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -32,75 +163,279 @@ footer{text-align:center;color:#666;padding:30px;border-top:1px solid #222}
 <body>
 
 <header>
-<div class="logo">AIRSOFT<span class="red">SZERVIZ</span></div>
+<div class="nav">
+
+<div class="logo">
+AIRSOFT<span class="red">SZERVIZ</span>
+</div>
+
+<nav>
+<a href="#kezdooldal">Kezdőlap</a>
+<a href="#hirdetesek">Hirdetések</a>
+<a href="#szerviz">Szerviz</a>
+<a href="#feladas">Hirdetés feladása</a>
+</nav>
+
+</div>
 </header>
 
-<div class="hero">
-<h1>Minden, ami <span class="red">airsoft.</span></h1>
+
+<main>
+
+<section id="kezdooldal" class="hero">
+
+<div class="red">AIRSOFT • SZERVIZ • APRÓ</div>
+
+<h1>
+Minden, ami <span class="red">airsoft.</span>
+</h1>
+
 <p>
 Airsoft fegyverek szervizelése, javítása és tuningja,
 valamint airsoft felszerelések adás-vétele egy helyen.
 </p>
-<a class="btn" href="#hirdetesek">Hirdetések</a>
+
+<div class="buttons">
+
+<a class="btn" href="#hirdetesek">
+Hirdetések
+</a>
+
+<a class="btn dark" href="#feladas">
++ Hirdetés feladása
+</a>
+
 </div>
 
+</section>
+
+
 <section id="hirdetesek">
+
 <h2>Legfrissebb hirdetések</h2>
 
 <div class="cards">
 
-<article class="card">
-<div class="pic">KÉP HELYE</div>
+<div class="card">
+
+<div class="pic">
+KÉP HELYE
+</div>
+
 <h3>M4 AEG</h3>
-<p>Megkímélt, karbantartott airsoft replika.</p>
-</article>
 
-<article class="card">
-<div class="pic">KÉP HELYE</div>
-<h3>HPA rendszer</h3>
-<p>HPA rendszer és tartozékok.</p>
-</article>
+<p>
+Megkímélt, karbantartott airsoft replika.
+</p>
 
-<article class="card">
-<div class="pic">KÉP HELYE</div>
-<h3>GBB pisztoly</h3>
-<p>Gázos airsoft pisztoly.</p>
-</article>
+<div class="price">
+85 000 Ft
+</div>
 
 </div>
+
+
+<div class="card">
+
+<div class="pic">
+KÉP HELYE
+</div>
+
+<h3>HPA rendszer</h3>
+
+<p>
+HPA rendszer és tartozékok.
+</p>
+
+<div class="price">
+120 000 Ft
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="pic">
+KÉP HELYE
+</div>
+
+<h3>GBB pisztoly</h3>
+
+<p>
+Gázos airsoft pisztoly.
+</p>
+
+<div class="price">
+55 000 Ft
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
-<h2>Szerviz</h2>
+
+<section id="szerviz">
+
+<h2>🔧 Airsoft szerviz</h2>
 
 <div class="cards">
 
 <div class="card">
 <h3>AEG szerviz</h3>
-<p>Gearbox szerviz, hibakeresés és tuning.</p>
+<p>
+Gearbox szerviz, hibakeresés,
+karbantartás és tuning.
+</p>
 </div>
 
 <div class="card">
 <h3>HPA építés</h3>
-<p>HPA rendszerek beépítése és beállítása.</p>
+<p>
+HPA rendszerek beépítése,
+beállítása és karbantartása.
+</p>
 </div>
 
 <div class="card">
 <h3>GBB szerviz</h3>
-<p>Karbantartás és javítás.</p>
+<p>
+GBB rendszerek tisztítása,
+javítása és karbantartása.
+</p>
 </div>
 
 </div>
+
 </section>
+
+
+<section id="feladas">
+
+<h2>➕ Hirdetés feladása</h2>
+
+<p style="color:#aaa">
+Töltsd ki az adatokat a hirdetésedhez.
+</p>
+
+<form onsubmit="feladas(event)">
+
+<label>Hirdetés címe</label>
+<input
+type="text"
+id="cim"
+placeholder="Pl. Specna Arms M4"
+required
+>
+
+<label>Kategória</label>
+
+<select id="kategoria">
+
+<option>AEG</option>
+<option>HPA</option>
+<option>GBB</option>
+<option>Felszerelés</option>
+<option>Alkatrész</option>
+<option>Egyéb</option>
+
+</select>
+
+
+<label>Ár (Ft)</label>
+
+<input
+type="number"
+id="ar"
+placeholder="85000"
+required
+>
+
+
+<label>Helység</label>
+
+<input
+type="text"
+id="hely"
+placeholder="Érd"
+required
+>
+
+
+<label>Leírás</label>
+
+<textarea
+id="leiras"
+placeholder="Írd le a termék állapotát, tartozékait..."
+required
+></textarea>
+
+
+<label>Kapcsolat</label>
+
+<input
+type="text"
+id="kapcsolat"
+placeholder="Telefonszám vagy e-mail"
+required
+>
+
+
+<label>Kép</label>
+
+<input
+type="file"
+accept="image/*"
+>
+
+
+<br><br>
+
+<button class="btn" type="submit">
+Hirdetés feladása
+</button>
+
+</form>
+
+</section>
+
 
 <section>
-<h2>Kapcsolat</h2>
-<p>Hamarosan online szerviz- és hirdetésfeladás is elérhető.</p>
+
+<h2>📞 Kapcsolat</h2>
+
+<p style="color:#aaa">
+AirsoftSzerviz – airsoft javítás, tuning és adás-vétel.
+</p>
+
 </section>
 
+</main>
+
+
 <footer>
+
 © 2026 AirsoftSzerviz
+
 </footer>
+
+
+<script>
+
+function feladas(event){
+
+event.preventDefault();
+
+alert(
+"Hirdetés elkészült!\\n\\n" +
+"A valódi online közzétételhez még adatbázist kell hozzákapcsolnunk."
+);
+
+}
+
+</script>
 
 </body>
 </html>
